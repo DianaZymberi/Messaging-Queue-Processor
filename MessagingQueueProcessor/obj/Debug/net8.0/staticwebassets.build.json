@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mjahcMkH+emmLCsgJLRI7EkbXNSyuVpgzyAwa0Q3Lzs=",
+  "Source": "MessagingQueueProcessor",
+  "BasePath": "_content/MessagingQueueProcessor",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

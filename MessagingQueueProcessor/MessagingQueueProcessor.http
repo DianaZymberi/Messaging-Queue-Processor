@@ -1,0 +1,59 @@
+@MessagingQueueProcessor_HostAddress = http://localhost:5126
+
+GET {{MessagingQueueProcessor_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Get Queue Status
+GET {{baseUrl}}/api/messagequeue/status
+
+### Enqueue SMS Message
+POST {{baseUrl}}/api/messagequeue/sms
+Content-Type: application/json
+
+{
+  "phoneNumber": "+1234567890",
+  "text": "Hello! This is a test SMS message."
+}
+
+### Enqueue Email Message
+POST {{baseUrl}}/api/messagequeue/email
+Content-Type: application/json
+
+{
+  "to": "user@example.com",
+  "subject": "Test Email",
+  "body": "This is a test email message.",
+  "from": "noreply@example.com"
+}
+
+### Enqueue Push Notification
+POST {{baseUrl}}/api/messagequeue/push
+Content-Type: application/json
+
+{
+  "deviceToken": "fcm-token-12345",
+  "title": "Test Notification",
+  "body": "This is a test push notification.",
+  "data": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+
+### Get Pending Messages
+GET {{baseUrl}}/api/messagequeue/pending
+
+### Get Failed Messages
+GET {{baseUrl}}/api/messagequeue/failed
+
+### Retry Failed Message (replace {messageId} with actual ID)
+POST {{baseUrl}}/api/messagequeue/retry/{messageId}
+
+### Clear All Failed Messages
+DELETE {{baseUrl}}/api/messagequeue/failed
+
+### Variables
+@baseUrl = https://localhost:7001
